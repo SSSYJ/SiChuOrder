@@ -3,6 +3,9 @@ import { View, Text } from '@tarojs/components'
 import './index.scss'
 import { AtButton,AtTabBar } from 'taro-ui'
 import TotalPrice from '../../components/TotalPrice'
+// import { AtTabBar } from 'taro-ui'
+import TabBar from '../../components/TabBar'
+import Item from '../../components/Item'
 
 export default class Index extends Component {
   constructor () {
@@ -32,6 +35,7 @@ export default class Index extends Component {
   render () {
     return (
       <View className='index'>
+        <Item />
 
         <TotalPrice
           price={this.state.price}
@@ -49,6 +53,7 @@ export default class Index extends Component {
           current={this.state.current}
         />
        
+
 
       </View>
       
