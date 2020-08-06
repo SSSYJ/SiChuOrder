@@ -3,6 +3,7 @@ import { View } from '@tarojs/components'
 import './index.scss'
 // import { AtTabBar } from 'taro-ui'
 import TabBar from '../../components/TabBar'
+import Item from '../../components/Item'
 
 export default class Index extends Component {
 
@@ -19,8 +20,10 @@ export default class Index extends Component {
   render () {
     return (
       <View className='index'>
+        <Item/>
 
        <TabBar />
+
 
       </View>
       

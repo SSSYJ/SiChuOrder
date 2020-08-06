@@ -1,8 +1,10 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { View } from '@tarojs/components'
 import { AtTabBar } from 'taro-ui'
 
 function TabBar() {
+
+
   return (
     <View>
       <AtTabBar
