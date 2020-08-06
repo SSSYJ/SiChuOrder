@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
-import { View } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 import './index.scss'
-// import { AtTabBar } from 'taro-ui'
-import TabBar from '../../components/TabBar'
+import { AtButton,AtTabBar } from 'taro-ui'
+import TotalPrice from '../../components/TotalPrice'
 
 export default class Index extends Component {
-
+  constructor () {
+    super(...arguments)
+    this.state = {
+      current: 0,
+      price: 10 ,
+    }
+  }
+  
   componentWillMount () { }
 
   componentDidMount () { }
@@ -16,11 +23,32 @@ export default class Index extends Component {
 
   componentDidHide () { }
 
+  handleClick (value) {
+    this.setState({
+      current: value
+    })
+  }
+
   render () {
     return (
       <View className='index'>
 
-       <TabBar />
+        <TotalPrice
+          price={this.state.price}
+          handleConfirm={() => this.setState({current: 1, price: 5})}
+        ></TotalPrice>
+
+        <AtTabBar
+          fixed
+          tabList={[
+            { title: 'Menu', iconType: 'list' },
+            { title: 'Cart', iconType: 'shopping-cart' },
+            { title: 'My Orders', iconType: 'user' }
+          ]}
+          onClick={this.handleClick.bind(this)}
+          current={this.state.current}
+        />
+       
 
       </View>
       
