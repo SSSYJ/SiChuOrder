@@ -3,9 +3,10 @@ import { View, Text } from '@tarojs/components'
 import './index.scss'
 import { AtButton,AtTabBar } from 'taro-ui'
 import TotalPrice from '../../components/TotalPrice'
-// import { AtTabBar } from 'taro-ui'
-import TabBar from '../../components/TabBar'
 import Item from '../../components/Item'
+import Title from '../../components/Title'
+
+import chicken from '../../img/download.jpg'
 
 export default class Index extends Component {
   constructor () {
@@ -33,14 +34,35 @@ export default class Index extends Component {
   }
 
   render () {
+    let menu = [
+      {
+        name:'大盘鸡',
+        price:'$25',
+        img: chicken
+      },
+      {
+        name: '回锅肉',
+        price: '$20',
+        img: chicken
+      },
+      {
+        name:'狼牙土豆',
+        price:'$10',
+        img: chicken
+      }
+    ]
+    let menuList = menu.map(el => {
+       return (<Item name= {el.name} price={el.price} img={el.img}/>)
+    })
     return (
       <View className='index'>
-        <Item />
+        <Title title='Menu'/>
+        {menuList}
 
         <TotalPrice
           price={this.state.price}
           handleConfirm={() => this.setState({current: 1, price: 5})}
-        ></TotalPrice>
+        />
 
         <AtTabBar
           fixed
