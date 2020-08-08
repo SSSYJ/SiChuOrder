@@ -35,13 +35,16 @@ export default class Index extends Component {
   render () {
     return (
       <View className='index'>
-        <Item />
+          <Item />
 
-        <TotalPrice
-          price={this.state.price}
-          handleConfirm={() => this.setState({current: 1, price: 5})}
-        ></TotalPrice>
+            <TotalPrice
+              price={this.state.price}
+              handleConfirm={() => this.setState({current: 1, price: 5})}
+              className='totalprice'
+            />
+        
 
+        
         <AtTabBar
           fixed
           tabList={[
