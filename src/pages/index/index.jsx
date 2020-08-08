@@ -1,39 +1,29 @@
-import React, { Component } from 'react'
-import { View, Text } from '@tarojs/components'
+import React, { useState } from 'react'
+import { View } from '@tarojs/components'
+import { AtTabBar } from 'taro-ui'
+
 import './index.scss'
-import { AtButton,AtTabBar } from 'taro-ui'
+
 import TotalPrice from '../../components/TotalPrice'
 import Item from '../../components/Item'
 import Title from '../../components/Title'
-
 import chicken from '../../img/download.jpg'
 
-export default class Index extends Component {
-  constructor () {
-    super(...arguments)
-    this.state = {
-      current: 0,
-      price: 10 ,
-    }
-  }
-  
-  componentWillMount () { }
+function Index() {
+  const [current, setCurrent] = useState(0);
+  const [price, setPrice] = useState(0);
 
-  componentDidMount () { }
+  // componentWillMount () { }
 
-  componentWillUnmount () { }
+  // componentDidMount () { }
 
-  componentDidShow () { }
+  // componentWillUnmount () { }
 
-  componentDidHide () { }
+  // componentDidShow () { }
 
-  handleClick (value) {
-    this.setState({
-      current: value
-    })
-  }
+  // componentDidHide () { }
 
-  render () {
+
     let menu = [
       {
         name:'大盘鸡',
@@ -56,18 +46,21 @@ export default class Index extends Component {
         img: chicken
       },
     ]
-    let menuList = menu.map(el => {
-       return (<Item name= {el.name} price={el.price} img={el.img}/>)
+    let menuList = menu.map((el, index) => {
+       return (<Item key={index} name={el.name} price={el.price} img={el.img} />)
     })
     return (
-      <View className='index at-col'>
+      <View className='index'>
 
         <Title title='Menu' />
-        {menuList}
+        <View className='menu-content'>
+          {menuList}
+        </View>
+        
 
         <TotalPrice
-          price={this.state.price}
-          handleConfirm={() => this.setState({current: 1, price: 5})}
+          price={price}
+          handleConfirm={() => setPrice(5)}
         />
 
 
@@ -79,8 +72,9 @@ export default class Index extends Component {
             { title: 'Cart', iconType: 'shopping-cart' },
             { title: 'My Orders', iconType: 'user' }
           ]}
-          onClick={this.handleClick.bind(this)}
-          current={this.state.current}
+          onClick={(value) => setCurrent(value)}
+          current={current}
+          className='tab-bar'
         />
        
 
@@ -89,4 +83,5 @@ export default class Index extends Component {
       
     )
   }
-}
+
+export default Index;

@@ -1,5 +1,5 @@
 import React , {useState} from 'react'
-import { View, Image } from '@tarojs/components'
+import { View, Image, Text } from '@tarojs/components'
 import { AtButton, AtCard } from "taro-ui"
 import './Item.scss'
 
@@ -20,12 +20,12 @@ function Item(props) {
   }
 
   return (
-    <View>
+    <View className='menu-item'>
       <AtCard extra={props.price} title={props.name} >
         <View className='at-row'>
-        <Image src={props.img}/>
+        <Image src={props.img} />
           <AtButton  size='small' onClick={deleteQty}> - </AtButton>
-          {qty}
+          <Text>{qty}</Text>
           <AtButton size='small' onClick={addQty} > + </AtButton>
         </View>
       </AtCard>
