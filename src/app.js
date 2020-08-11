@@ -1,21 +1,13 @@
 import React, { Component } from 'react'
 // import React from 'react'
-import { Provider } from '@tarojs/redux'
-import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 import configStore from './store'
 
-import rootReducer from './reducers'
 import './app.scss'
 
 
-const store = createStore(rootReducer)
+const store = configStore()
 
-// class App extends Component {
-  
-//     render() {
-//       return this.props.children
-//     }
-// }
 class App extends Component {
   
   render() {
@@ -28,5 +20,4 @@ class App extends Component {
   }
 }
 
-// ReactDOM.render(<App />, document.getElementById('app'))
 export default App

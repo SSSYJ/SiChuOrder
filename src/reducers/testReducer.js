@@ -1,12 +1,14 @@
-const testReducer = (state = 0, action) => {
+import { ADD, MINUS } from '../constants'
+
+const  INITIAL_STATE = 0
+
+export default function testReducer (state = INITIAL_STATE, action) {
     switch(action.type) {
-        case 'INCREMENT':
+        case 'ADD':
             return state + 1
-        case 'DECREMENT':
+        case 'MINUS':
             return state - 1
         default:
             return state
     }
 }
-
-export default testReducer

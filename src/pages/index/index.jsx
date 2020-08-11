@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { View } from '@tarojs/components'
+import { connect } from 'react-redux'
+import { View, Button } from '@tarojs/components'
 import { AtTabBar } from 'taro-ui'
+import { useDispatch, useSelector } from 'react-redux';
 
 import './index.scss'
 
@@ -9,9 +11,10 @@ import Item from '../../components/Item'
 import Title from '../../components/Title'
 import chicken from '../../img/download.jpg'
 import { increment, decrement } from '../../actions'
-import { useDispatch, useSelector } from '@tarojs/redux';
 
-function Index() {
+
+
+const Index = function (props) {
 
 
   const [current, setCurrent] = useState(0);
@@ -45,12 +48,19 @@ function Index() {
     let menuList = menu.map((el, index) => {
        return (<Item key={index} name={el.name} price={el.price} img={el.img} />)
     })
+
+    // var num = 'empty'
+    // if (counter) {
+    //   num = `${counter.num}`
+    // }
+
     return (
       <View className='index'>
 
         <Title title='Menu' />
-        
+        <Button onClick={() => dispatch(decrement())}>-</Button>
         <View>{counter}</View>
+        <Button onClick={() => dispatch(increment())}>+</Button>
         <View className='menu-content'>
 
         
@@ -76,5 +86,14 @@ function Index() {
       </View>
     )
   }
-
+  // connect((state) => ({
+  //   test: state.test
+  // }), (dispatch) => ({
+  // add() {
+  //   dispatch(increment())
+  // },
+  // dec() {
+  //   dispatch(decrement())
+  // },
+  // }))(Index)
 export default Index;

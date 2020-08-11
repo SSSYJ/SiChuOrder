@@ -1,11 +1,13 @@
+import { ADD, MINUS } from '../constants'
+
 export const increment = () => {
     return {
-        type: 'INCREMENT'
+        type: 'ADD'
     }
 }
 
 export const decrement = () => {
     return {
-        type: 'DECREMENT'
+        type: 'MINUS'
     }
 }
