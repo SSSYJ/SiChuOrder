@@ -12,22 +12,25 @@ export const decrement = () => {
     }
 }
 
-export const addToCart = (name, price) => {
+export const addToCart = (name, price, qty) => {
     return {
       type: ADD_TO_CART,
       payload: {
         name: name,
         price: price,
+        qty: qty
       }
     }
   }
 
-export const removeFromCart = (name, price) => {
+
+ export const removeFromCart = (name, price, qty) => {
     return {
       type: REMOVE_FROM_CART,
       payload: {
         name: name,
         price: price,
+        qty: qty
       }
     }
 }

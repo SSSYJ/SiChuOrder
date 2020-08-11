@@ -11,9 +11,9 @@ import Menu from '../../components/Menu'
 
 
 
-const Index = function () {
+const Index = function (props) {
   const [current, setCurrent] = useState(0);
-  const [price, setPrice] = useState(0);
+
 
     let itemList = [
       {
@@ -60,8 +60,8 @@ const Index = function () {
 
         <Menu isMenu itemList={itemList} />
         <TotalPrice
-          price={price}
-          handleConfirm={() => setPrice(5)}
+          // price={price}
+          handleConfirm={() =>setPrice(5)}
         />
         <AtTabBar
           fixed
