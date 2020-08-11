@@ -20,8 +20,6 @@ const Menu = function (props) {
     const dispatch = useDispatch()
     console.log(props)
     return (
-        <View >
-            <Title title='Menu' />
             <View className='menu-content'>
             {props.isMenu &&  
                 props.itemList.map((menuItem, menuIndex) => {
@@ -44,7 +42,6 @@ const Menu = function (props) {
                 })
             }
             </View>
-        </View>
         
     )
 }

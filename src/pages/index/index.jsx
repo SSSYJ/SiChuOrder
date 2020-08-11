@@ -1,3 +1,4 @@
+import Taro, { switchTab } from '@tarojs/taro'
 import React, { useState } from 'react'
 import { View } from '@tarojs/components'
 import { AtTabBar } from 'taro-ui'
@@ -11,7 +12,6 @@ import Menu from '../../components/Menu'
 
 
 const Index = function () {
-
   const [current, setCurrent] = useState(0);
   const [price, setPrice] = useState(0);
 
@@ -38,17 +38,31 @@ const Index = function () {
       },
     ]
 
+    function handleSwitch(value) {
+      setCurrent(value)
+      switch (value) {
+        case 0:
+          Taro.redirectTo({
+            url: '/pages/index/index'
+          })
+          break;
+        case 1:
+          Taro.redirectTo({
+            url: '/pages/cart/cart'
+          })
+          break;
+      }
+    }
+
+
     return (
       <View className='index'>
 
-
         <Menu isMenu itemList={itemList} />
-
         <TotalPrice
           price={price}
           handleConfirm={() => setPrice(5)}
         />
-
         <AtTabBar
           fixed
           tabList={[
@@ -56,7 +70,7 @@ const Index = function () {
             { title: 'Cart', iconType: 'shopping-cart' },
             { title: 'My Orders', iconType: 'user' }
           ]}
-          onClick={(value) => setCurrent(value)}
+          onClick={handleSwitch}
           current={current}
           className='tab-bar'
         />

@@ -1,4 +1,4 @@
-import { ADD, MINUS, ADD_TO_CART, REMOVE_FROM_CART } from '../constants'
+import { ADD, MINUS, ADD_TO_CART, REMOVE_FROM_CART, SWITCH_TAB } from '../constants'
 
 export const increment = () => {
     return {
@@ -22,7 +22,7 @@ export const addToCart = (name, price) => {
     }
   }
 
- export const removeFromCart = (name, price) => {
+export const removeFromCart = (name, price) => {
     return {
       type: REMOVE_FROM_CART,
       payload: {
@@ -30,4 +30,11 @@ export const addToCart = (name, price) => {
         price: price,
       }
     }
+}
+
+export const switchTab = (value) => {
+  return {
+    type: SWITCH_TAB,
+    payload: value,
   }
+}
