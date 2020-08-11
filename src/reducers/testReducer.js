@@ -4,9 +4,9 @@ const  INITIAL_STATE = 0
 
 export default function testReducer (state = INITIAL_STATE, action) {
     switch(action.type) {
-        case 'ADD':
+        case ADD:
             return state + 1
-        case 'MINUS':
+        case MINUS:
             return state - 1
         default:
             return state

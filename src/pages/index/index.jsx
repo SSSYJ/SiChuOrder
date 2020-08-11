@@ -1,72 +1,49 @@
 import React, { useState } from 'react'
-import { connect } from 'react-redux'
-import { View, Button } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import { AtTabBar } from 'taro-ui'
-import { useDispatch, useSelector } from 'react-redux';
 
 import './index.scss'
 
 import TotalPrice from '../../components/TotalPrice'
-import Item from '../../components/Item'
-import Title from '../../components/Title'
 import chicken from '../../img/download.jpg'
-import { increment, decrement } from '../../actions'
+import Menu from '../../components/Menu'
 
 
 
-const Index = function (props) {
-
+const Index = function () {
 
   const [current, setCurrent] = useState(0);
   const [price, setPrice] = useState(0);
 
-  const dispatch = useDispatch();
-  const counter = useSelector(state => state.test)
-
-    let menu = [
+    let itemList = [
       {
         name:'大盘鸡',
-        price:'$25',
+        price: 25,
         img: chicken
       },
       {
         name: '回锅肉',
-        price: '$20',
+        price: 20,
         img: chicken
       },
       {
         name:'狼牙土豆',
-        price:'$10',
+        price: 10,
         img: chicken
       },
       {
-        name:'狼牙土豆',
-        price:'$10',
+        name:'狼牙土豆2',
+        price: 10,
         img: chicken
       },
     ]
-    let menuList = menu.map((el, index) => {
-       return (<Item key={index} name={el.name} price={el.price} img={el.img} />)
-    })
-
-    // var num = 'empty'
-    // if (counter) {
-    //   num = `${counter.num}`
-    // }
 
     return (
       <View className='index'>
 
-        <Title title='Menu' />
-        <Button onClick={() => dispatch(decrement())}>-</Button>
-        <View>{counter}</View>
-        <Button onClick={() => dispatch(increment())}>+</Button>
-        <View className='menu-content'>
 
-        
-          {menuList}
-        </View>
-        
+        <Menu isMenu itemList={itemList} />
+
         <TotalPrice
           price={price}
           handleConfirm={() => setPrice(5)}
@@ -86,14 +63,4 @@ const Index = function (props) {
       </View>
     )
   }
-  // connect((state) => ({
-  //   test: state.test
-  // }), (dispatch) => ({
-  // add() {
-  //   dispatch(increment())
-  // },
-  // dec() {
-  //   dispatch(decrement())
-  // },
-  // }))(Index)
 export default Index;
