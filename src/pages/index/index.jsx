@@ -8,21 +8,17 @@ import TotalPrice from '../../components/TotalPrice'
 import Item from '../../components/Item'
 import Title from '../../components/Title'
 import chicken from '../../img/download.jpg'
+import { increment, decrement } from '../../actions'
+import { useDispatch, useSelector } from '@tarojs/redux';
 
 function Index() {
+
+
   const [current, setCurrent] = useState(0);
   const [price, setPrice] = useState(0);
 
-  // componentWillMount () { }
-
-  // componentDidMount () { }
-
-  // componentWillUnmount () { }
-
-  // componentDidShow () { }
-
-  // componentDidHide () { }
-
+  const dispatch = useDispatch();
+  const counter = useSelector(state => state.test)
 
     let menu = [
       {
@@ -53,18 +49,19 @@ function Index() {
       <View className='index'>
 
         <Title title='Menu' />
+        
+        <View>{counter}</View>
         <View className='menu-content'>
+
+        
           {menuList}
         </View>
         
-
         <TotalPrice
           price={price}
           handleConfirm={() => setPrice(5)}
         />
 
-
-        
         <AtTabBar
           fixed
           tabList={[
@@ -76,11 +73,7 @@ function Index() {
           current={current}
           className='tab-bar'
         />
-       
-
-
       </View>
-      
     )
   }
 
