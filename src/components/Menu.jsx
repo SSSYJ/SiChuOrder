@@ -37,8 +37,8 @@ const Menu = function (props) {
                           price={`$${menuItem.price}`} 
                           img={chicken} 
                           qty={qty} 
-                          del={() => dispatch(removeFromCart(menuItem.name, menuItem.price))}
-                          add={() => dispatch(addToCart(menuItem.name, menuItem.price))}
+                          del={() => dispatch(removeFromCart(menuItem.name, menuItem.price, qty))}
+                          add={() => dispatch(addToCart(menuItem.name, menuItem.price, qty))}
                         />
                     )
                 })
