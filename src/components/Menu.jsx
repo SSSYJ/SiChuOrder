@@ -19,8 +19,7 @@ const Menu = function (props) {
     const dispatch = useDispatch()
     console.log(props)
     return (
-        <View >
-            <View className='menu-content'>
+        <View className='menu-content'>
             {props.itemList.map(menuItem => {
                 const orderItem = props.order.find(e => e.name === menuItem.name)
                 var qty = 0;
@@ -29,17 +28,16 @@ const Menu = function (props) {
                 }
                 return (
                     <MenuItem 
-                        key={menuItem.name} 
-                        name={menuItem.name} 
-                        price={`$${menuItem.price}`} 
-                        img={chicken} 
-                        qty={qty} 
-                        del={() => dispatch(removeFromCart(menuItem.name, menuItem.price, qty))}
-                        add={() => dispatch(addToCart(menuItem.name, menuItem.price, qty))}
+                      key={menuItem.name} 
+                      name={menuItem.name} 
+                      price={`$${menuItem.price}`} 
+                      img={chicken} 
+                      qty={qty} 
+                      del={() => dispatch(removeFromCart(menuItem.name, menuItem.price, qty))}
+                      add={() => dispatch(addToCart(menuItem.name, menuItem.price, qty))}
                     />
                 )
             })}
-            </View>
         </View>
         
     )

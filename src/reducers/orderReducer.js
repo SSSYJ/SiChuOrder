@@ -33,9 +33,6 @@ export default function orderReducer(state = INITIAL_STATE, action) {
                     }
                     return item
                 }
-                default: {
-                    return item
-                }
             }
             
         })

@@ -1,3 +1,4 @@
+import Taro from '@tarojs/taro'
 import React, { useState } from 'react'
 import { View } from '@tarojs/components'
 import { AtTabBar } from 'taro-ui'
@@ -6,7 +7,6 @@ import './index.scss'
 
 import Home from '../../components/Home'
 import Cart from '../../components/Cart'
-import CartItem from '../../components/CartItem'
 
 import chicken from '../../img/download.jpg'
 
@@ -52,7 +52,7 @@ const Index = function () {
             { title: 'Cart', iconType: 'shopping-cart' },
             { title: 'My Orders', iconType: 'user' }
           ]}
-          onClick={(value) => setCurrent(value)}
+          onClick={handleSwitch}
           current={current}
           className='tab-bar'
         />
