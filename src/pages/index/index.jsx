@@ -4,50 +4,43 @@ import { AtTabBar } from 'taro-ui'
 
 import './index.scss'
 
-import TotalPrice from '../../components/TotalPrice'
+import Home from '../../components/Home'
+import Cart from '../../components/Home'
+
 import chicken from '../../img/download.jpg'
-import Menu from '../../components/Menu'
 
 
-const Index = function (props) {
+const Index = function () {
 
   const [current, setCurrent] = useState(0);
 
-
-    let itemList = [
-      {
-        name:'大盘鸡',
-        price: 25,
-        img: chicken
-      },
-      {
-        name: '回锅肉',
-        price: 20,
-        img: chicken
-      },
-      {
-        name:'狼牙土豆',
-        price: 10,
-        img: chicken
-      },
-      {
-        name:'狼牙土豆2',
-        price: 10,
-        img: chicken
-      },
-    ]
+  let itemList = [
+    {
+      name:'大盘鸡',
+      price: 25,
+      img: chicken
+    },
+    {
+      name: '回锅肉',
+      price: 20,
+      img: chicken
+    },
+    {
+      name:'狼牙土豆',
+      price: 10,
+      img: chicken
+    },
+    {
+      name:'狼牙土豆2',
+      price: 10,
+      img: chicken
+    },
+  ]    
 
     return (
       <View className='index'>
-
-
-        <Menu isMenu itemList={itemList} />
-
-        <TotalPrice
-          // price={price}
-          handleConfirm={() =>setPrice(5)}
-        />
-
+        <Home items={itemList}/>
+        
         <AtTabBar
           fixed
           tabList={[

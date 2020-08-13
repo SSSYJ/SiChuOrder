@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Image, Text } from '@tarojs/components'
 import { AtButton, AtCard } from "taro-ui"
-import './Item.scss'
+import './MenuItem.scss'
 
 
 function Item(props) {
