@@ -38,7 +38,6 @@ const Menu = function (props) {
                     />
                 )
             })}
-
         </View>
         
     )

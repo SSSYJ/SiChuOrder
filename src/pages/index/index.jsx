@@ -1,4 +1,3 @@
-import Taro from '@tarojs/taro'
 import React, { useState } from 'react'
 import { View } from '@tarojs/components'
 import { AtTabBar } from 'taro-ui'
@@ -42,7 +41,7 @@ const Index = function () {
       <View className='index'>
         
         {current === 0 && <Home items={itemList} />}
-        {current === 1 && <Cart items={itemList} />}
+        {current === 1 && <Cart />}
         
         <AtTabBar
           fixed
