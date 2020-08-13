@@ -10,7 +10,7 @@ const INITIAL_STATE = [
 
 export default function orderReducer(state = INITIAL_STATE, action) {
     console.log(action.payload)
-        console.log(state)
+    console.log(state)
     var name = '';
     if (action.payload) {
         name = action.payload.name
@@ -31,9 +31,6 @@ export default function orderReducer(state = INITIAL_STATE, action) {
                     if (item.qty > 0) {
                         return {...item, qty: item.qty - 1}
                     }
-                    return item
-                }
-                default: {
                     return item
                 }
             }

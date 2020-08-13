@@ -1,18 +1,21 @@
 import React from 'react'
 import { View } from '@tarojs/components'
-import './Item.scss'
 import Title from './Title'
-import Menu from './Menu'
+import Menu from  './Menu'
+import TotalPrice from './TotalPrice'
+
 
 
 function Home(props) {
 
   return (
-    <View className='home'>
+
+    <View>
       <Title title='Menu' />
-      <Menu isMenu itemList={props.itemList} />
+      <Menu itemList={props.items} />
+      <TotalPrice handleConfirm={() =>console.log('confirm')} />
     </View>
   )
 }
 
-export default Home
+export default Home;

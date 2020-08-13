@@ -2,8 +2,7 @@ import React from 'react'
 import { View } from '@tarojs/components'
 import { connect, useDispatch } from 'react-redux'
 
-import Title from './Title'
-import Item from './Item'
+import MenuItem from './MenuItem'
 import chicken from '../img/download.jpg'
 import { addToCart, removeFromCart } from '../actions'
 
@@ -20,28 +19,27 @@ const Menu = function (props) {
     const dispatch = useDispatch()
     console.log(props)
     return (
-            <View className='menu-content'>
-            {props.isMenu &&  
-                props.itemList.map((menuItem, menuIndex) => {
-                    const orderItem = props.order.find(e => e.name === menuItem.name)
-                    var qty = 0;
-                    if (orderItem) {
-                        qty = orderItem.qty
-                    }
-                    return (
-                        <Item 
-                          key={menuItem.name} 
-                          name={menuItem.name} 
-                          price={`$${menuItem.price}`} 
-                          img={chicken} 
-                          qty={qty} 
-                          del={() => dispatch(removeFromCart(menuItem.name, menuItem.price, qty))}
-                          add={() => dispatch(addToCart(menuItem.name, menuItem.price, qty))}
-                        />
-                    )
-                })
-            }
-            </View>
+        <View className='menu-content'>
+            {props.itemList.map(menuItem => {
+                const orderItem = props.order.find(e => e.name === menuItem.name)
+                var qty = 0;
+                if (orderItem) {
+                    qty = orderItem.qty
+                }
+                return (
+                    <MenuItem 
+                      key={menuItem.name} 
+                      name={menuItem.name} 
+                      price={`$${menuItem.price}`} 
+                      img={chicken} 
+                      qty={qty} 
+                      del={() => dispatch(removeFromCart(menuItem.name, menuItem.price, qty))}
+                      add={() => dispatch(addToCart(menuItem.name, menuItem.price, qty))}
+                    />
+                )
+            })}
+
+        </View>
         
     )
 }
