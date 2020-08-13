@@ -5,7 +5,8 @@ import { AtTabBar } from 'taro-ui'
 import './index.scss'
 
 import Home from '../../components/Home'
-import Cart from '../../components/Home'
+import Cart from '../../components/Cart'
+import CartItem from '../../components/CartItem'
 
 import chicken from '../../img/download.jpg'
 
@@ -36,10 +37,13 @@ const Index = function () {
       img: chicken
     },
   ]    
-
+  const qty = 1;
     return (
       <View className='index'>
         <Home items={itemList}/>
+
+        <Cart />
+
         
         <AtTabBar
           fixed

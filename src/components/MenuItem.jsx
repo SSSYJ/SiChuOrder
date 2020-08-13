@@ -4,7 +4,7 @@ import { AtButton, AtCard } from "taro-ui"
 import './MenuItem.scss'
 
 
-function Item(props) {
+function MenuItem(props) {
 
   return (
     <View className='menu-item'>
@@ -20,4 +20,4 @@ function Item(props) {
   )
 }
 
-export default Item
+export default MenuItem

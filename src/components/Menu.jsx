@@ -39,27 +39,6 @@ const Menu = function (props) {
                     />
                 )
             })}
-
-            {/* {props.isMenu &&  
-                props.itemList.map((menuItem, menuIndex) => {
-                    const orderItem = props.order.find(e => e.name === menuItem.name)
-                    var qty = 0;
-                    if (orderItem) {
-                        qty = orderItem.qty
-                    }
-                    return (
-                        <MenuItem 
-                          key={menuItem.name} 
-                          name={menuItem.name} 
-                          price={`$${menuItem.price}`} 
-                          img={chicken} 
-                          qty={qty} 
-                          del={() => dispatch(removeFromCart(menuItem.name, menuItem.price, qty))}
-                          add={() => dispatch(addToCart(menuItem.name, menuItem.price, qty))}
-                        />
-                    )
-                })
-            } */}
             </View>
         </View>
         

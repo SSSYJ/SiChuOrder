@@ -5,10 +5,7 @@ import Title from './Title'
 import Menu from  './Menu'
 import TotalPrice from './TotalPrice'
 
-
-
 function Home(props) {
-
   return (
     <View>
       <Title title='Menu' />
