@@ -1,69 +1,63 @@
+import Taro from '@tarojs/taro'
 import React, { useState } from 'react'
 import { View } from '@tarojs/components'
 import { AtTabBar } from 'taro-ui'
 
 import './index.scss'
 
-import TotalPrice from '../../components/TotalPrice'
-import Item from '../../components/Item'
-import Title from '../../components/Title'
+import Home from '../../components/Home'
+import Cart from '../../components/Cart'
+
 import chicken from '../../img/download.jpg'
 
-function Index() {
+
+const Index = function () {
+
   const [current, setCurrent] = useState(0);
-  const [price, setPrice] = useState(0);
 
-  // componentWillMount () { }
+  let itemList = [
+    {
+      name:'大盘鸡',
+      price: 25,
+      img: chicken
+    },
+    {
+      name: '回锅肉',
+      price: 20,
+      img: chicken
+    },
+    {
+      name:'狼牙土豆',
+      price: 10,
+      img: chicken
+    },
+    {
+      name:'狼牙土豆2',
+      price: 10,
+      img: chicken
+    },
+  ]    
 
-  // componentDidMount () { }
+    function handleSwitch(value) {
+      setCurrent(value)
+      switch (value) {
+        case 0:
+          Taro.redirectTo({
+            url: '/pages/index/index'
+          })
+          break;
+        case 1:
+          Taro.redirectTo({
+            url: '/pages/cart/cart'
+          })
+          break;
+      }
+    }
 
-  // componentWillUnmount () { }
 
-  // componentDidShow () { }
-
-  // componentDidHide () { }
-
-
-    let menu = [
-      {
-        name:'大盘鸡',
-        price:'$25',
-        img: chicken
-      },
-      {
-        name: '回锅肉',
-        price: '$20',
-        img: chicken
-      },
-      {
-        name:'狼牙土豆',
-        price:'$10',
-        img: chicken
-      },
-      {
-        name:'狼牙土豆',
-        price:'$10',
-        img: chicken
-      },
-    ]
-    let menuList = menu.map((el, index) => {
-       return (<Item key={index} name={el.name} price={el.price} img={el.img} />)
-    })
     return (
       <View className='index'>
-
-        <Title title='Menu' />
-        <View className='menu-content'>
-          {menuList}
-        </View>
-        
-
-        <TotalPrice
-          price={price}
-          handleConfirm={() => setPrice(5)}
-        />
-
-
+        <Home items={itemList} />
         
         <AtTabBar
           fixed
@@ -72,16 +66,11 @@ function Index() {
             { title: 'Cart', iconType: 'shopping-cart' },
             { title: 'My Orders', iconType: 'user' }
           ]}
-          onClick={(value) => setCurrent(value)}
+          onClick={handleSwitch}
           current={current}
           className='tab-bar'
         />
-       
-
-
       </View>
-      
     )
   }
-
 export default Index;
