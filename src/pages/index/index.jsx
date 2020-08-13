@@ -8,6 +8,7 @@ import Home from '../../components/Home'
 import Cart from '../../components/Cart'
 
 import chicken from '../../img/download.jpg'
+import MyOrders from '../../components/MyOrders'
 
 
 const Index = function () {
@@ -39,10 +40,14 @@ const Index = function () {
 
     return (
       <View className='index'>
-        
-        {current === 0 && <Home items={itemList} />}
-        {current === 1 && <Cart />}
-        
+        <View className='page-body'>
+          {current === 0 && <Home items={itemList} />}
+          {current === 1 && <Cart />}
+          {current === 2 && <MyOrders />}
+        </View>
+          
+
+
         <AtTabBar
           fixed
           tabList={[

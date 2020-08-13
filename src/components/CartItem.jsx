@@ -2,9 +2,11 @@ import React from 'react'
 import { View, Text } from '@tarojs/components'
 import { AtButton, AtCard } from "taro-ui"
 
+import './CartItem.scss'
+
 function CartItem(props) { 
   return(
-    <View>
+    <View className='cart-item'>
       <AtCard extra={`$${props.price}`} title={props.name} >
           <View className='at-row'>
             <AtButton  size='small' onClick={props.del}> - </AtButton>

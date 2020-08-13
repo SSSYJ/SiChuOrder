@@ -19,7 +19,7 @@ function Cart(props) {
   return (
     <View>
       <Title title='Cart' />
-      
+      <View className='menu-content'>
       {props.order.map(cartItem => {
         if (cartItem.name && cartItem.qty > 0) {
           return (
@@ -34,10 +34,9 @@ function Cart(props) {
             />
             )
         }
-        
-        
-        
       })}
+      </View>
+      
       
       <TotalPrice />
     </View>
