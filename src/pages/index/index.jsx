@@ -38,26 +38,11 @@ const Index = function () {
     },
   ]    
 
-    function handleSwitch(value) {
-      setCurrent(value)
-      switch (value) {
-        case 0:
-          Taro.redirectTo({
-            url: '/pages/index/index'
-          })
-          break;
-        case 1:
-          Taro.redirectTo({
-            url: '/pages/cart/cart'
-          })
-          break;
-      }
-    }
-
-
     return (
       <View className='index'>
-        <Home items={itemList} />
+        
+        {current === 0 && <Home items={itemList} />}
+        {current === 1 && <Cart items={itemList} />}
         
         <AtTabBar
           fixed
@@ -66,7 +51,7 @@ const Index = function () {
             { title: 'Cart', iconType: 'shopping-cart' },
             { title: 'My Orders', iconType: 'user' }
           ]}
-          onClick={handleSwitch}
+          onClick={(value) => setCurrent(value)}
           current={current}
           className='tab-bar'
         />

@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import { View, Text, Button } from '@tarojs/components'
+import React from 'react'
+import Taro from '@tarojs/taro'
+import { View, Text } from '@tarojs/components'
 import { connect } from 'react-redux'
 import { AtButton } from 'taro-ui'
 import './TotalPrice.scss'
@@ -20,8 +21,8 @@ function TotalPrice(props){
         
             <View className='confirm-button at-col-3' >
                 <AtButton 
-                type='primary'
-                // onClick={this.props.handleConfirm.bind(this)}
+                  type='primary'
+                  onClick={() => Taro.navigateTo({url: '/pages/order/order'})}
                 >
                     Confirm
                 </AtButton>

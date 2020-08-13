@@ -8,7 +8,7 @@ import TotalPrice from './TotalPrice'
 function Cart(props) {
   return (
     <View>
-      <Title title='Menu' />
+      <Title title='Cart' />
       <Menu itemList={props.items} />
       <TotalPrice handleConfirm={() => console.log(5)} />
     </View>
