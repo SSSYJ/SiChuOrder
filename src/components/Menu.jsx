@@ -1,23 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { View } from '@tarojs/components'
-import { connect, useDispatch } from 'react-redux'
+import { connect } from 'react-redux'
 
 import MenuItem from './MenuItem'
 import chicken from '../img/download.jpg'
-import { addToCart, removeFromCart } from '../actions'
+import { addToCart, removeFromCart, getMenu } from '../actions'
 
 
 const mapStateToProps = (state) => ({
-    order: state.order
-})
-
-const mapDispatchToProps = dispatch => ({
-    dispatch, 
+    order: state.order,
+    menu: state.menu
 })
 
 const Menu = function (props) {
-    const dispatch = useDispatch()
+
     console.log(props)
+    useEffect(() => {
+        props.getMenu()
+    }, [props.menu.length])
+
     return (
         <View className='menu-content'>
             {props.itemList.map(menuItem => {
@@ -27,20 +28,20 @@ const Menu = function (props) {
                     qty = orderItem.qty
                 }
                 return (
-                    <MenuItem 
-                      key={menuItem.name} 
-                      name={menuItem.name} 
-                      price={`$${menuItem.price}`} 
-                      img={chicken} 
-                      qty={qty} 
-                      del={() => dispatch(removeFromCart(menuItem.name, menuItem.price, qty))}
-                      add={() => dispatch(addToCart(menuItem.name, menuItem.price, qty))}
+                    <MenuItem
+                      key={menuItem.name}
+                      name={menuItem.name}
+                      price={`$${menuItem.price}`}
+                      img={chicken}
+                      qty={qty}
+                      del={e => { e.preventDefault(); props.removeFromCart(menuItem.name, menuItem.price, qty) }}
+                      add={e => { e.preventDefault(); props.addToCart(menuItem.name, menuItem.price, qty) }}
                     />
                 )
             })}
         </View>
-        
+
     )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Menu)
+export default connect(mapStateToProps, { addToCart, removeFromCart, getMenu })(Menu)
