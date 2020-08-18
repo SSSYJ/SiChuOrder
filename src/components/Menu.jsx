@@ -3,7 +3,7 @@ import { View } from '@tarojs/components'
 import { connect } from 'react-redux'
 
 import MenuItem from './MenuItem'
-import chicken from '../img/download.jpg'
+// import chicken from '../img/download.jpg'
 import { addToCart, removeFromCart, getMenu } from '../actions'
 
 
@@ -21,7 +21,7 @@ const Menu = function (props) {
 
     return (
         <View className='menu-content'>
-            {props.itemList.map(menuItem => {
+            {props.menu.map(menuItem => {
                 const orderItem = props.order.find(e => e.name === menuItem.name)
                 var qty = 0;
                 if (orderItem) {
@@ -32,7 +32,7 @@ const Menu = function (props) {
                       key={menuItem.name}
                       name={menuItem.name}
                       price={`$${menuItem.price}`}
-                      img={chicken}
+                      img={menuItem.thumb}
                       qty={qty}
                       del={e => { e.preventDefault(); props.removeFromCart(menuItem.name, menuItem.price, qty) }}
                       add={e => { e.preventDefault(); props.addToCart(menuItem.name, menuItem.price, qty) }}
