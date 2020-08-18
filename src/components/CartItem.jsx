@@ -7,7 +7,7 @@ import './CartItem.scss'
 function CartItem(props) { 
   return(
     <View className='cart-item'>
-      <AtCard extra={`$${props.price}`} title={props.name} >
+      <AtCard extra={`$${props.price * props.qty}`} title={props.name} >
           <View className='at-row'>
             <AtButton  size='small' onClick={props.del}> - </AtButton>
             <Text>{props.qty}</Text>
