@@ -1,19 +1,17 @@
 import React from 'react'
 import { View, Text } from '@tarojs/components'
-import { AtButton, AtCard } from "taro-ui"
+import { AtButton } from "taro-ui"
 
 import './CartItem.scss'
 
 function CartItem(props) { 
   return(
-    <View className='cart-item'>
-      <AtCard extra={`$${props.price * props.qty}`} title={props.name} >
-          <View className='at-row'>
-            <AtButton  size='small' onClick={props.del}> - </AtButton>
-            <Text>{props.qty}</Text>
-            <AtButton size='small' onClick={props.add} > + </AtButton>
-          </View>
-        </AtCard>
+    <View className='cart-item at-row'>
+      <Text className='at-col-4'>{props.name}</Text>
+      <AtButton className='button' size='small' onClick={props.del}> - </AtButton>
+      <Text>{props.qty}</Text>
+      <AtButton className='button' size='small' onClick={props.add} > + </AtButton>
+      <Text>${props.price * props.qty}</Text>
     </View>
   );
 }
