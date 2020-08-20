@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 import { connect, useDispatch } from 'react-redux'
 
 import Title from './Title'
@@ -7,8 +7,11 @@ import CartItem from './CartItem'
 import TotalPrice from './TotalPrice'
 import { removeFromCart, addToCart } from '../actions'
 
+import './Cart.scss'
+
 const mapStateToProps = (state) => ({
-  order: state.order
+  order: state.order,
+  totalPrice: state.totalPrice
 })
 const mapDispatchToProps = dispatch => ({
   dispatch, 
@@ -20,6 +23,12 @@ function Cart(props) {
     <View>
       <Title title='Cart' />
       <View className='menu-content'>
+        {props.totalPrice === 0 && 
+        <View className='empty-cart'>
+          <Text>Your cart is empty...</Text>
+        </View>
+          
+        }
       {props.order.map(cartItem => {
         if (cartItem.name && cartItem.qty > 0) {
           return (
