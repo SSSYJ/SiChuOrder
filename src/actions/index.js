@@ -1,38 +1,38 @@
-import { ADD, MINUS, ADD_TO_CART, REMOVE_FROM_CART, SWITCH_TAB } from '../constants'
+import { ADD, MINUS, ADD_TO_CART, REMOVE_FROM_CART, SWITCH_TAB, BASE_URL, GET_MENU } from '../constants'
 
 export const increment = () => {
-    return {
-        type: ADD
-    }
+  return {
+    type: ADD
+  }
 }
 
 export const decrement = () => {
-    return {
-        type: MINUS
-    }
+  return {
+    type: MINUS
+  }
 }
 
-export const addToCart = (name, price, qty) => {
-    return {
-      type: ADD_TO_CART,
-      payload: {
-        name: name,
-        price: price,
-        qty: qty
-      }
+export const addToCart = (name, price, qty) => (dispatch) => {
+  dispatch({
+    type: ADD_TO_CART,
+    payload: {
+      name: name,
+      price: price,
+      qty: qty
     }
-  }
+  })
+}
 
 
- export const removeFromCart = (name, price, qty) => {
-    return {
-      type: REMOVE_FROM_CART,
-      payload: {
-        name: name,
-        price: price,
-        qty: qty
-      }
+export const removeFromCart = (name, price, qty) => (dispatch) => {
+  dispatch({
+    type: REMOVE_FROM_CART,
+    payload: {
+      name: name,
+      price: price,
+      qty: qty
     }
+  })
 }
 
 export const switchTab = (value) => {
@@ -40,4 +40,15 @@ export const switchTab = (value) => {
     type: SWITCH_TAB,
     payload: value,
   }
+}
+
+export const getMenu = () => (dispatch) => {
+  var Fly = require("../../wx")
+  var fly = new Fly
+  fly.get(`${BASE_URL}/api/menu/`).then(res => {
+    dispatch({
+      type: GET_MENU,
+      payload: res.data
+    })
+  }).catch(err => console.log(err))
 }

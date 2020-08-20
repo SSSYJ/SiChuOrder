@@ -4,12 +4,12 @@ import Title from './Title'
 import Menu from  './Menu'
 import TotalPrice from './TotalPrice'
 
-function Home(props) {
+function Home() {
   return (
 
     <View>
       <Title title='Menu' />
-      <Menu itemList={props.items} />
+      <Menu />
       <TotalPrice handleConfirm={() =>console.log('confirm')} />
     </View>
   )
