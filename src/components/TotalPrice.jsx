@@ -21,7 +21,7 @@ function TotalPrice(props){
         
             <View className='confirm-button at-col-3' >
                 <AtButton 
-                  disabled={props.totalPrice === 0}
+                  disabled={props.totalPrice <= 0}
                   type='primary'
                   onClick={() => Taro.navigateTo({url: '/pages/order/order'})}
                 >

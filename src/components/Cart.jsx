@@ -23,11 +23,10 @@ function Cart(props) {
     <View>
       <Title title='Cart' />
       <View className='menu-content'>
-        {props.totalPrice === 0 && 
-        <View className='empty-cart'>
-          <Text>Your cart is empty...</Text>
-        </View>
-          
+        {props.totalPrice <= 0 && 
+          <View className='empty-cart'>
+            <Text>Your cart is empty...</Text>
+          </View>
         }
       {props.order.map(cartItem => {
         if (cartItem.name && cartItem.qty > 0) {
