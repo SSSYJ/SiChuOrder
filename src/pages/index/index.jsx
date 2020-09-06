@@ -6,37 +6,12 @@ import './index.scss'
 
 import Home from '../../components/Home'
 import Cart from '../../components/Cart'
-
-// import chicken from '../../img/download.jpg'
 import MyOrders from '../../components/MyOrders'
 
 
 const Index = function () {
 
   const [current, setCurrent] = useState(0);
-
-  // let itemList = [
-  //   {
-  //     name:'大盘鸡',
-  //     price: 25,
-  //     img: chicken
-  //   },
-  //   {
-  //     name: '回锅肉',
-  //     price: 20,
-  //     img: chicken
-  //   },
-  //   {
-  //     name:'狼牙土豆',
-  //     price: 10,
-  //     img: chicken
-  //   },
-  //   {
-  //     name:'狼牙土豆2',
-  //     price: 10,
-  //     img: chicken
-  //   },
-  // ]    
 
     return (
       <View className='index'>
@@ -45,8 +20,7 @@ const Index = function () {
           {current === 1 && <Cart />}
           {current === 2 && <MyOrders />}
         </View>
-          
-
+  
 
         <AtTabBar
           fixed

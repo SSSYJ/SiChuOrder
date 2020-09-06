@@ -1,7 +1,7 @@
 export default {
   pages: [
     'pages/index/index',
-    'pages/order/order',
+    'pages/confirm/confirm',
   ],
   window: {
     backgroundTextStyle: 'light',
