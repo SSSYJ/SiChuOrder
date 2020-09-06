@@ -3,12 +3,11 @@ import { View } from '@tarojs/components'
 import { connect } from 'react-redux'
 
 import MenuItem from './MenuItem'
-// import chicken from '../img/download.jpg'
 import { addToCart, removeFromCart, getMenu } from '../actions'
 
 
 const mapStateToProps = (state) => ({
-    order: state.order,
+    cart: state.cart,
     menu: state.menu
 })
 
@@ -22,7 +21,7 @@ const Menu = function (props) {
     return (
         <View className='menu-content'>
             {props.menu.map(menuItem => {
-                const orderItem = props.order.find(e => e.name === menuItem.name)
+                const orderItem = props.cart.find(e => e.name === menuItem.name)
                 var qty = 0;
                 if (orderItem) {
                     qty = orderItem.qty

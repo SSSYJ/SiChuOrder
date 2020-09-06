@@ -1,4 +1,4 @@
-import { ADD, MINUS, ADD_TO_CART, REMOVE_FROM_CART, SWITCH_TAB, BASE_URL, GET_MENU } from '../constants'
+import { ADD, MINUS, ADD_TO_CART, REMOVE_FROM_CART, SWITCH_TAB, BASE_URL, GET_MENU, GET_ORDERS, RESET } from '../constants'
 
 export const increment = () => {
   return {
@@ -51,4 +51,23 @@ export const getMenu = () => (dispatch) => {
       payload: res.data
     })
   }).catch(err => console.log(err))
+}
+
+// userid!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+export const getOrders = () => dispatch => {
+  var Fly = require("../../wx")
+  var fly = new Fly
+  fly.get(`${BASE_URL}/api/orders/`).then(res => {
+    dispatch({
+      type: GET_ORDERS,
+      payload: res.data
+    })
+  }).catch(err => console.log(err))
+}
+
+
+export const reset = () => {
+  return {
+    type: RESET
+  }
 }

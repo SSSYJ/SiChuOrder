@@ -10,7 +10,7 @@ import { removeFromCart, addToCart } from '../actions'
 import './Cart.scss'
 
 const mapStateToProps = (state) => ({
-  order: state.order,
+  cart: state.cart,
   totalPrice: state.totalPrice
 })
 const mapDispatchToProps = dispatch => ({
@@ -28,7 +28,7 @@ function Cart(props) {
             <Text>Your cart is empty...</Text>
           </View>
         }
-      {props.order.map(cartItem => {
+      {props.cart.map(cartItem => {
         if (cartItem.name && cartItem.qty > 0) {
           return (
           
