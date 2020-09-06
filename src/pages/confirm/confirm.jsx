@@ -45,7 +45,7 @@ function Order(props) {
         setSubmitted(true);
         props.reset();
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Redirect to order detail page
-        Taro.redirectTo({ url: '../index/index'});
+        setTimeout(() => Taro.redirectTo({ url: '../index/index'}), 1000);
       })
       .catch(function (error) {
         console.log(error);
