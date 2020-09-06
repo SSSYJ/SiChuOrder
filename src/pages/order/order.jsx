@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Label, Text } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 import { connect } from 'react-redux'
 import { AtForm, AtInput, AtTextarea, AtRadio, AtCard, AtButton} from 'taro-ui'
 
@@ -43,19 +43,7 @@ function Order(props) {
                 </AtCard>
             </View>
             <View className='info'>
-              <AtForm
-                onSubmit={e => console.log(e)}
-              >
-                {/* <AtCard title='备注 Comment' isFull>
-                  <AtTextarea 
-                      className='comment-textarea'
-                      value={comment}
-                      onChange={value => setComment(value)}
-                      maxLength={200}
-                      placeholder='Enter comments here'
-                  />
-                </AtCard> */}
-                  {/* <Label className='comment-label' for='comment-textarea'>备注</Label> */}
+              <AtForm onSubmit={e => console.log(e)}>
                   <AtTextarea 
                     className='comment-textarea'
                     value={comment}

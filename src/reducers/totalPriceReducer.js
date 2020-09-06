@@ -10,11 +10,11 @@ export default function totalPriceReducer(state = 0, action) {
           return (Number(state) - action.payload.price).toFixed(2)
         }
         else{
-          return state
+          return Number(state).toFixed(2)
         }
     }
     default: {
-        return state
+        return Number(state).toFixed(2)
     }
   }
 }
