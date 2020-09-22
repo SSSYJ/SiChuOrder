@@ -31,22 +31,24 @@ function Order(props) {
       fly.post('https://sichu.herokuapp.com/api/orders/', {
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!! userID
         "userId": "aaaaaaaaaaaaaaa",
-        //!!!!!!!!!!!!!!!!!!!!!!
-        "time": Date(),
         "comment": comment,
         "phone": phone,
         "address": address,
         "paymentMethod": payMethod,
-        // !!!!!!!!!!!!!!!!!!!!!!!!!!!! items
-        "items": [15],
+        "totalPrice": props.total,
+        "orderItems": props.cart
+          .filter(item => item.name && item.qty > 0)
+          .map(item => ({"menuItem": item.name, "qty": item.qty, "price": item.price})),
       })
       .then(function (response) {
         console.log(response);
         setSubmitted(true);
-        props.reset();
-        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Redirect to order detail page
-        setTimeout(() => Taro.redirectTo({ url: '../index/index'}), 1000);
-      })
+
+        setTimeout(() => {
+          props.reset();
+          Taro.redirectTo({ url: '../index/index'});          
+        }, 1000)})
+
       .catch(function (error) {
         console.log(error);
         setError(true);
@@ -124,5 +126,4 @@ function Order(props) {
     )
 }
 
-export default connect(mapStateToProps, 
-  {reset})(Order); 
+export default connect(mapStateToProps, {reset})(Order); 

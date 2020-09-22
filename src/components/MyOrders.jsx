@@ -22,12 +22,13 @@ function MyOrders(props) {
     <View>
       <Title title='My Orders' />
       <View className='my-orders'>
-        {props.orders.map(orderItem => 
-            <OrderItem 
+        {props.orders.map(orderItem =>  
+          <OrderItem 
             key={orderItem.id}
             id={orderItem.id}
             time={orderItem.time}
-            totalPrice={orderItem.id}
+            totalPrice={orderItem.totalPrice}
+            orderItems={orderItem.orderItems}
           />
         )}
       </View>

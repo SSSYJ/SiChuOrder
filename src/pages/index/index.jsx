@@ -9,6 +9,7 @@ import Cart from '../../components/Cart'
 import MyOrders from '../../components/MyOrders'
 
 
+
 const Index = function () {
 
   const [current, setCurrent] = useState(0);

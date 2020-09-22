@@ -1,4 +1,4 @@
-import { ADD, MINUS, ADD_TO_CART, REMOVE_FROM_CART, SWITCH_TAB, BASE_URL, GET_MENU, GET_ORDERS, RESET } from '../constants'
+import { ADD, MINUS, ADD_TO_CART, REMOVE_FROM_CART, SWITCH_TAB, BASE_URL, GET_MENU, GET_ORDERS, GET_ONE_ORDER, RESET } from '../constants'
 
 export const increment = () => {
   return {
@@ -64,7 +64,6 @@ export const getOrders = () => dispatch => {
     })
   }).catch(err => console.log(err))
 }
-
 
 export const reset = () => {
   return {
